@@ -49,6 +49,17 @@ public class EasyMechDrive extends OpMode
         frontRight.setDirection(DcMotor.Direction.REVERSE);
         backRight.setDirection(DcMotor.Direction.REVERSE);
 
+        frontLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        frontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        backLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        backRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
+        frontLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        frontRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        backLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        backRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
+
         telemetry.addData("Status", "Initialized");
     }
 
@@ -90,13 +101,13 @@ public class EasyMechDrive extends OpMode
         double rightFrontPower = (cos(angle) * speedMultiplier) - xR;
         double rightBackPower = (sin(angle) * speedMultiplier) - xR;
 
-        /*double max = max(abs(leftFrontPower), abs(leftBackPower), abs(rightFrontPower), abs(rightBackPower));
+        double max = max(abs(leftFrontPower), abs(leftBackPower), abs(rightFrontPower), abs(rightBackPower));
         if (max > 1) {
             leftFrontPower /= max;
             leftBackPower /= max;
             rightFrontPower /= max;
             rightBackPower /= max;
-        }*/
+        }
 
         frontLeft.setPower(leftFrontPower);
         backLeft.setPower(leftBackPower);
