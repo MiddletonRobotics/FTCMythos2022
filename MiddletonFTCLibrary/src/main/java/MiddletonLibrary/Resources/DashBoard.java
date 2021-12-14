@@ -12,11 +12,9 @@ import static org.firstinspires.ftc.robotcore.external.Telemetry.Log.DisplayOrde
  */
 
 public class DashBoard {
-    private Telemetry telemetry;
+    private final Telemetry telemetry;
 
-    public DashBoard(Telemetry telemetry){
-        this.telemetry = telemetry;
-    }
+    public DashBoard(Telemetry telemetry){this.telemetry = telemetry;}
 
     public void create(String string) {telemetry.addLine(string);}
     public void create(Object data) {create(data.toString());}

@@ -33,6 +33,38 @@ public abstract class Robot {
 
     public enum OpMode {AUTO, TELEOP}
 
+    public void strafe(double distance, double angle, double timeout, double speed) {
+        driveTrain.resetEncoders();
+        timeoutClock.reset();
+        driveController.reset();
+        double error, turnError, turnPower, power, heading = tracker.getHeading();
+        do {
+            error = distance - driveTrain.getInches();
+            power = driveController.getOutput(error);
+
+            turnError = -adjustAngle(heading - tracker.getHeading());
+            turnPower = turnController.getOutput(turnError);
+
+            driveTrain.setPowerMECH(angle, power * speed, turnPower);
+            tracker.updateSystem();
+
+            dash.create("KP: ", driveController.getConstants()[0]);
+            dash.create("Power: " , power);
+            dash.create("Distance: ", distance);
+            dash.create("Heading: ", tracker.getHeading());
+            dash.create("DistanceLeftToTravel: ", error);
+            dash.create("Angle: ", angle);
+            dash.update();
+        } while(opModeIsActive() && error > 1 && timeoutClock.seconds() < timeout);
+        driveTrain.setPower(0);
+    }
+    public void strafe(double distance, double angle, double timeout) {strafe(distance, angle, timeout, 0.75);}
+    public void strafe(double distance, double angle) {strafe(distance, angle, 2);}
+
+    public void drive(double distance, double timeout, double speed) {strafe(distance, 0, timeout, speed);}
+    public void drive(double distance, double timeout) {drive(distance, timeout, 0.75);}
+    public void drive(double distance) {drive(distance,2);}
+
     public void turnAbsolute(double angle, double timeout) {
         double error, power;
 

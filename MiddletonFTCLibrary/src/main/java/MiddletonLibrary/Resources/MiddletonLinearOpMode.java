@@ -15,7 +15,7 @@ import static MiddletonLibrary.Resources.Utils.*;
 
 public abstract class MiddletonLinearOpMode extends LinearOpMode {
     public DashBoard dash;
-    protected ElapsedTime timeoutClock = new ElapsedTime();
+    protected ElapsedTime clock = new ElapsedTime();
 
     public final void runOpMode() {
         try {

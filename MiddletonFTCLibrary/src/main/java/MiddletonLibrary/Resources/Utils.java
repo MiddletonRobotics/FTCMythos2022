@@ -35,7 +35,7 @@ public class Utils {
             "oyeuTNxj9HLCTuVRtvIpVE8SbcqXUoYDkPUWU2glz5RtdGOkVQPGUDGAM1UJ2MeTHsuOhA18K8j6lSlQauMT" +
             "nDm5N85KELfrDl008Q35GRvf4fwcAXpSIg1fGc8/yDpeGkAvTmRx1A+GQHbfnw5LiJWl0fY7BCqd2";
 
-    public static PIDController turnController;
+    public static PIDController turnController, driveController;
 
     public static void sleep(long milliSeconds) {getLinearOpMode().sleep(milliSeconds);}
     public static void sleep() {sleep(DEFAULT_SLEEP_TIME);}
