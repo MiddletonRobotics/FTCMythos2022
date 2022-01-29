@@ -32,6 +32,7 @@ public class MechaDrive extends OpMode
         duckWheel = hardwareMap.get(DcMotor.class, "DuckWheel");
         spool = hardwareMap.get(DcMotor.class,"spool");
         claw = hardwareMap.get(Servo.class, "claw");
+        duckWheel = hardwareMap.get(DcMotor.class, "duckWheel");
 
         frontLeft.setDirection(DcMotorSimple.Direction.FORWARD);
         backLeft.setDirection(DcMotorSimple.Direction.FORWARD);

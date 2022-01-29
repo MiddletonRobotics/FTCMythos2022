@@ -35,7 +35,11 @@ public class Utils {
             "oyeuTNxj9HLCTuVRtvIpVE8SbcqXUoYDkPUWU2glz5RtdGOkVQPGUDGAM1UJ2MeTHsuOhA18K8j6lSlQauMT" +
             "nDm5N85KELfrDl008Q35GRvf4fwcAXpSIg1fGc8/yDpeGkAvTmRx1A+GQHbfnw5LiJWl0fY7BCqd2";
 
+<<<<<<< HEAD:MiddletonFTCLibrary/src/main/java/MiddletonLibrary/Resources/Utils.java
     public static PIDController turnController, driveController;
+=======
+    public static PIDController turnController;
+>>>>>>> 5d52ae3d9d7ae0967e4686506a23c3892fd545ba:Masquerade4997Library/src/main/java/MasqLibrary/MasqResources/MasqUtils.java
 
     public static void sleep(long milliSeconds) {getLinearOpMode().sleep(milliSeconds);}
     public static void sleep() {sleep(DEFAULT_SLEEP_TIME);}
